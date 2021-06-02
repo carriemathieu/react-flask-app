@@ -15,7 +15,7 @@ function App() {
     <div className="App">
       <Router>
         <Switch>
-          <Route path='/'>
+          <Route exact path='/'>
             <TodoPage/>
           </Route>
           <Route path='/:id'>
