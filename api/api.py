@@ -33,7 +33,11 @@ def create():
     db.session.add(todo)
     db.session.commit()
 
-    return {'201' : 'todo created successfully '}
+    return {'201' : 'todo created successfully'}
+
+@app.route('/api/<int:id>', methods=['GET'])
+def show(id):
+    return jsonify([*map(todo_serializer, Todo.query.filter_by(id=id))])
 
 if __name__ == '__main__':
     app.run(debug=True)

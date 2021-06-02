@@ -27,8 +27,24 @@ export const TodoPage = () => {
             method: 'POST', 
             body: JSON.stringify({
                 content: addTodo
-            })
+            }),
+            headers: {
+                "Content-type": "application/json; charset=UTF-8"
+            }
+        }).then(response => response.json())
+        .then(msg => {
+            console.log(msg)
+            setAddTodo('')
         })
+    }
+
+    // updates state to refresh page
+    const getLatestTodos = () => {
+        fetch('/api').then(response => {
+            if(response.ok){
+                return response.json
+            }
+        }).then(data => setTodo(data))
     }
 
     return (

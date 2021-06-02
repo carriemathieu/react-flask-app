@@ -8,7 +8,7 @@ export const Form = ({ userInput, onFormChange, onFormSubmit }) => {
 
     const handleSubmit = (event) => {
         event.preventDefault()
-        onFormSubmit
+        onFormSubmit()
     }
 
     return(
