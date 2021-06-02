@@ -1,10 +1,28 @@
+import React from 'react'
 import './App.css';
 import { TodoPage } from './Pages/TodoPage'
+import { Show } from './Pages/Show'
+import {
+  BrowserRouter as Router,
+  Switch,
+  Route,
+  Link
+} from 'react-router-dom'
+
 
 function App() {
   return (
     <div className="App">
-      <TodoPage/>
+      <Router>
+        <Switch>
+          <Route path='/'>
+            <TodoPage/>
+          </Route>
+          <Route path='/:id'>
+            <Show/>
+          </Route>
+        </Switch>
+      </Router>
     </div>
   );
 }
