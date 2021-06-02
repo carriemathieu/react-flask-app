@@ -1,6 +1,6 @@
 import React from 'react'
 
-export const Form = ({ userInput, onFormChange, onFormSubmit}) => {
+export const Form = ({ userInput, onFormChange, onFormSubmit }) => {
 
     const handleChange = (event) => {
         onFormChange(event.target.value)
