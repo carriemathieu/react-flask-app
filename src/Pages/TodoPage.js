@@ -21,9 +21,19 @@ export const TodoPage = () => {
         setAddTodo(inputValue)
     }
 
+    // posts todo content to db
+    const handleFormSubmit = () => {
+        fetch('/api/create', {
+            method: 'POST', 
+            body: JSON.stringify({
+                content: addTodo
+            })
+        })
+    }
+
     return (
         <>
-            <Form userInput={addTodo} onFormChange={handleFormChange}/>
+            <Form userInput={addTodo} onFormChange={handleFormChange} onFormSubmit={handleFormSubmit}/>
             <Card listOfTodos={todo}/>
         </>
     )

@@ -1,14 +1,19 @@
 import React from 'react'
 
-export const Form = ({ userInput }) => {
-    
+export const Form = ({ userInput, onFormChange, onFormSubmit}) => {
+
     const handleChange = (event) => {
-        console.log(event.target.value)
+        onFormChange(event.target.value)
+    }
+
+    const handleSubmit = (event) => {
+        event.preventDefault()
+        onFormSubmit
     }
 
     return(
         <>
-            <form>
+            <form onSubmit={handleSubmit}> 
                 <input type='text' onChange={handleChange} value={userInput} required/>
                 <input type='submit'/>
             </form>
